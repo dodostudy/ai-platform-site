@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="행복플러스 분당발전본부 안전관리실 AI 플랫폼 - 안전을 위한 인공지능 서비스">
+    <meta name="keywords" content="안전관리, AI, GPTs, 위험성평가, 노트북LM, 분당발전">
+    <meta name="author" content="행복플러스 분당발전본부 안전관리실">
+    <meta property="og:title" content="안전관리실 AI 플랫폼">
+    <meta property="og:description" content="AI 기반 안전관리 서비스 포털">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- TailwindCSS 커스텀 색상 설정 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'kepco-blue': '#1e3a8a',
+                        'kepco-mid': '#1d4ed8',
+                        'kepco-light': '#2563eb',
+                        'kepco-sky': '#bfdbfe',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="css/style.css">
+    <title>안전관리실 AI 플랫폼 | 행복플러스 분당발전본부</title>
+</head>
+<body class="bg-white">
+
+<!-- ============================================================
+     네비게이션
+     ============================================================ -->
+<nav class="sticky top-0 z-50 bg-white shadow-md border-b-4 border-kepco-blue">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+
+        <!-- 로고 영역 -->
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-kepco-blue rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 1l-8 4v6c0 6.075 4.245 11.388 10 12.882 5.755-1.494 10-6.807 10-12.882v-6l-12-4zm0 2.308l6.923 2.309v3.808c0 4.915-3.115 9.231-6.923 10.385-3.808-1.154-6.923-5.47-6.923-10.385V5.617L12 3.308z"/>
+                </svg>
+            </div>
+            <div>
+                <p class="text-xs text-gray-500 leading-none">행복플러스 분당발전본부</p>
+                <p class="text-sm font-bold text-kepco-blue leading-tight">안전관리실 AI 플랫폼</p>
+            </div>
+        </div>
+
+        <!-- 데스크톱 메뉴 -->
+        <div class="hidden md:flex space-x-6">
+            <a href="#about" class="nav-link text-gray-700 hover:text-kepco-light transition text-sm font-medium">소개</a>
+            <a href="#services" class="nav-link text-gray-700 hover:text-kepco-light transition text-sm font-medium">AI 서비스</a>
+            <a href="#training" class="nav-link text-gray-700 hover:text-kepco-light transition text-sm font-medium">교육자료</a>
+            <a href="#guide" class="nav-link text-gray-700 hover:text-kepco-light transition text-sm font-medium">이용안내</a>
+        </div>
+
+        <!-- 모바일 햄버거 버튼 -->
+        <button id="mobileMenuBtn" class="md:hidden p-2">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </div>
+
+    <!-- 모바일 메뉴 -->
+    <div id="mobileMenu" class="hidden md:hidden bg-blue-50 border-t border-blue-100">
+        <a href="#about" class="block px-4 py-3 nav-link border-b border-blue-100 text-sm text-gray-700 hover:bg-blue-100">소개</a>
+        <a href="#services" class="block px-4 py-3 nav-link border-b border-blue-100 text-sm text-gray-700 hover:bg-blue-100">AI 서비스</a>
+        <a href="#training" class="block px-4 py-3 nav-link border-b border-blue-100 text-sm text-gray-700 hover:bg-blue-100">교육자료</a>
+        <a href="#guide" class="block px-4 py-3 nav-link text-sm text-gray-700 hover:bg-blue-100">이용안내</a>
+    </div>
+</nav>
+
+<!-- ============================================================
+     Hero 섹션
+     ============================================================ -->
+<section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden"
+         style="background: linear-gradient(135deg, #0f2057 0%, #1e3a8a 50%, #1d4ed8 100%);">
+
+    <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 30px 30px;"></div>
+
+    <div class="container mx-auto px-4 text-center relative z-10 py-20">
+        <!-- 조직 배지 -->
+        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
+            <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+            <span class="text-blue-100 text-sm font-medium">행복플러스 분당발전본부</span>
+        </div>
+
+        <!-- 메인 타이틀 -->
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 text-white leading-tight">
+            안전관리실<br>
+            <span class="text-blue-300">AI 플랫폼</span>
+        </h1>
+
+        <!-- 슬로건 -->
+        <p class="text-xl md:text-2xl text-blue-100 mb-4 font-light">
+            인공지능으로 더 스마트하고 안전한 현장을 만들어갑니다
+        </p>
+        <p class="text-blue-200 mb-10 max-w-2xl mx-auto">
+            GPTs 기반 위험성평가 도구, 노트북LM 지식베이스, Guidde 교육자료로<br>
+            안전관리 업무의 디지털 혁신을 지원합니다.
+        </p>
+
+        <!-- CTA 버튼 -->
+        <div class="flex gap-4 justify-center flex-wrap">
+            <a href="#services" class="px-8 py-3 bg-white text-kepco-blue rounded-lg hover:bg-blue-50 transition font-semibold shadow-lg">
+                AI 서비스 바로가기
+            </a>
+            <a href="#guide" class="px-8 py-3 border-2 border-white/50 text-white rounded-lg hover:bg-white/10 transition font-semibold">
+                이용안내 보기
+            </a>
+        </div>
+
+        <!-- 스크롤 다운 인디케이터 -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     안전관리실 소개 섹션
+     ============================================================ -->
+<section id="about" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+
+        <!-- 섹션 헤더 -->
+        <div class="text-center mb-12">
+            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-3">
+                ABOUT
+            </span>
+            <h2 class="text-4xl font-bold text-gray-900">안전관리실 소개</h2>
+            <div class="w-16 h-1 bg-kepco-light mx-auto mt-4"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <!-- 좌측: 텍스트 -->
+            <div>
+                <h3 class="text-2xl font-semibold mb-4 text-kepco-blue">우리의 역할</h3>
+                <p class="text-gray-600 mb-4 leading-relaxed">
+                    행복플러스 분당발전본부 안전관리실은 발전소 현장의 안전을 총괄하며,
+                    AI 기술을 활용하여 위험요소를 사전에 파악하고 사고를 예방합니다.
+                </p>
+                <p class="text-gray-600 mb-6 leading-relaxed">
+                    이 플랫폼은 임직원들이 AI 도구를 쉽게 활용할 수 있도록 지원하는
+                    원스톱 접근 포털입니다.
+                </p>
+                <!-- 핵심 역량 리스트 -->
+                <ul class="space-y-3">
+                    <li class="flex items-center gap-3 text-gray-700">
+                        <span class="w-5 h-5 bg-blue-100 text-kepco-light rounded-full flex items-center justify-center text-xs font-bold">✓</span>
+                        AI 기반 위험성평가 자동화
+                    </li>
+                    <li class="flex items-center gap-3 text-gray-700">
+                        <span class="w-5 h-5 bg-blue-100 text-kepco-light rounded-full flex items-center justify-center text-xs font-bold">✓</span>
+                        지식 관리 및 정보 검색 고도화
+                    </li>
+                    <li class="flex items-center gap-3 text-gray-700">
+                        <span class="w-5 h-5 bg-blue-100 text-kepco-light rounded-full flex items-center justify-center text-xs font-bold">✓</span>
+                        직원 역량 강화를 위한 교육 콘텐츠
+                    </li>
+                    <li class="flex items-center gap-3 text-gray-700">
+                        <span class="w-5 h-5 bg-blue-100 text-kepco-light rounded-full flex items-center justify-center text-xs font-bold">✓</span>
+                        안전 관련 법규 및 규정 준수 지원
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 우측: 통계 카드 -->
+            <div class="bg-gray-50 rounded-xl p-8 border border-gray-100">
+                <h3 class="text-xl font-semibold mb-6 text-gray-900">플랫폼 현황</h3>
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                        <p class="text-3xl font-bold text-kepco-light">2</p>
+                        <p class="text-sm text-gray-500 mt-1">AI 서비스</p>
+                    </div>
+                    <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                        <p class="text-3xl font-bold text-kepco-light">24/7</p>
+                        <p class="text-sm text-gray-500 mt-1">이용 가능</p>
+                    </div>
+                    <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                        <p class="text-3xl font-bold text-kepco-light">무료</p>
+                        <p class="text-sm text-gray-500 mt-1">임직원 서비스</p>
+                    </div>
+                    <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                        <p class="text-3xl font-bold text-kepco-light">최신</p>
+                        <p class="text-sm text-gray-500 mt-1">AI 기술 적용</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     AI 서비스 섹션
+     ============================================================ -->
+<section id="services" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+
+        <!-- 섹션 헤더 -->
+        <div class="text-center mb-12">
+            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-3">
+                AI SERVICES
+            </span>
+            <h2 class="text-4xl font-bold text-gray-900">AI 서비스</h2>
+            <div class="w-16 h-1 bg-kepco-light mx-auto mt-4"></div>
+            <p class="text-gray-600 mt-4">안전관리 업무를 지원하는 AI 도구들을 활용해보세요</p>
+        </div>
+
+        <!-- 서비스 카드 그리드 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+            <!-- 카드 1: GPTs 안전누리 -->
+            <div class="service-card card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition group">
+                <div class="h-40 bg-gradient-to-br from-kepco-blue to-kepco-mid flex items-center justify-center relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                    <div class="relative z-10 text-center">
+                        <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform">
+                            <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M21.86 2.27a.5.5 0 00-.39-.27h-.2C8.03 3.2 2.27 9.32 2 21.8a.5.5 0 00.14.37c.1.12.24.2.4.2.05 0 .09 0 .14-.01 12.47-1.27 18.26-7.43 19.18-19.25.02-.28-.06-.56-.27-.64zM5.5 21.5c.31-3.54 1.95-7.54 4.92-10.51 2.96-2.97 6.97-4.61 10.51-4.92-.53 5.51-3.8 10.7-8.77 13.46-4.97 2.76-10.7 3.3-15.77 2.08l.11-0.11z"/>
+                            </svg>
+                        </div>
+                        <span class="text-white/80 text-xs font-medium">GPTs</span>
+                    </div>
+                </div>
+
+                <div class="p-6">
+                    <div class="flex gap-2 mb-3">
+                        <span class="px-2 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-full">사용 가능</span>
+                        <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded-full">위험성평가</span>
+                    </div>
+
+                    <h3 class="text-xl font-bold mb-2 text-gray-900">GPTs 안전누리</h3>
+                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                        ChatGPT 기반 위험성평가 전문 AI입니다.
+                        작업별 위험요소 분석, 감소대책 제안, 안전 관련 법규 안내 등
+                        안전관리 업무를 지능적으로 지원합니다.
+                    </p>
+
+                    <ul class="space-y-1 text-xs text-gray-500 mb-5">
+                        <li class="flex items-center gap-2">
+                            <span class="text-green-500">●</span> 위험성평가 자동 작성 지원
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-green-500">●</span> 산업안전보건법 기반 답변
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-green-500">●</span> ChatGPT Plus 계정 필요
+                        </li>
+                    </ul>
+
+                    <a href="https://chatgpt.com/g/g-68d9ea4687d881919dc5d8c7aa65c776-bundang-anjeonnuri-koen-for-wiheomseongpyeongga"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="service-btn w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-kepco-blue text-white rounded-lg hover:bg-kepco-mid transition font-semibold text-sm">
+                        <span>GPTs 안전누리 열기</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 카드 2: 노트북LM -->
+            <div class="service-card card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition group">
+                <div class="h-40 bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                    <div class="relative z-10 text-center">
+                        <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                      d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                            </svg>
+                        </div>
+                        <span class="text-white/80 text-xs font-medium">NotebookLM</span>
+                    </div>
+                </div>
+
+                <div class="p-6">
+                    <div class="flex gap-2 mb-3">
+                        <span class="px-2 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-full">사용 가능</span>
+                        <span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded-full">지식관리</span>
+                    </div>
+
+                    <h3 class="text-xl font-bold mb-2 text-gray-900">노트북LM</h3>
+                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                        Google NotebookLM 기반 안전관리 지식베이스입니다.
+                        업로드된 안전관련 문서를 기반으로 질의응답, 요약, 분석을
+                        AI가 즉시 처리합니다.
+                    </p>
+
+                    <ul class="space-y-1 text-xs text-gray-500 mb-5">
+                        <li class="flex items-center gap-2">
+                            <span class="text-purple-500">●</span> 사내 문서 기반 Q&A
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-purple-500">●</span> 규정/매뉴얼 즉시 검색
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-purple-500">●</span> Google 계정 필요
+                        </li>
+                    </ul>
+
+                    <a href="https://notebooklm.google.com/notebook/2a65cd74-5062-411a-8eaa-057953920304"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="service-btn w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition font-semibold text-sm">
+                        <span>노트북LM 열기</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     교육 자료 섹션
+     ============================================================ -->
+<section id="training" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+
+        <div class="text-center mb-12">
+            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-3">
+                TRAINING
+            </span>
+            <h2 class="text-4xl font-bold text-gray-900">교육 자료</h2>
+            <div class="w-16 h-1 bg-kepco-light mx-auto mt-4"></div>
+            <p class="text-gray-600 mt-4">Guidde로 제작된 AI 활용 안전교육 영상 및 매뉴얼</p>
+        </div>
+
+        <!-- 교육 카드 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+
+            <!-- 교육 카드 1: 안전누리 활용법 -->
+            <a href="https://app.guidde.com/share/playbooks/hr8GgLUK3uJ3MgnkuecH9V?origin=WsIqNikVeiZSE6b1baGljoCN5EH3"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="training-card card bg-white border border-gray-200 rounded-xl p-6 hover:border-kepco-light hover:shadow-md transition group">
+                <div class="h-32 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg flex items-center justify-center mb-4 relative overflow-hidden">
+                    <div class="w-12 h-12 bg-kepco-blue rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                        <svg class="w-5 h-5 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                    <span class="absolute top-2 right-2 px-2 py-0.5 bg-red-500 text-white text-xs rounded font-medium">VIDEO</span>
+                </div>
+                <h3 class="font-semibold text-gray-900 mb-1 text-sm">GPTs 안전누리 활용법</h3>
+                <p class="text-xs text-gray-500">시작부터 위험성평가 작성까지 (동영상 & 문서)</p>
+                <p class="text-xs text-kepco-light mt-2 font-medium group-hover:underline">Guidde에서 보기 →</p>
+            </a>
+
+            <!-- 교육 카드 2: 노트북LM 활용법 -->
+            <a href="https://app.guidde.com/share/playbooks/hM65mMqte8n93XRznKvLjk?origin=WsIqNikVeiZSE6b1baGljoCN5EH3"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="training-card card bg-white border border-gray-200 rounded-xl p-6 hover:border-kepco-light hover:shadow-md transition group">
+                <div class="h-32 bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-lg flex items-center justify-center mb-4 relative overflow-hidden">
+                    <div class="w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                        <svg class="w-5 h-5 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                    <span class="absolute top-2 right-2 px-2 py-0.5 bg-red-500 text-white text-xs rounded font-medium">VIDEO</span>
+                </div>
+                <h3 class="font-semibold text-gray-900 mb-1 text-sm">노트북LM 활용법</h3>
+                <p class="text-xs text-gray-500">문서 업로드 및 Q&A 방법 (동영상 & 문서)</p>
+                <p class="text-xs text-kepco-light mt-2 font-medium group-hover:underline">Guidde에서 보기 →</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     이용안내 섹션
+     ============================================================ -->
+<section id="guide" class="py-20 bg-blue-50">
+    <div class="container mx-auto px-4">
+
+        <div class="text-center mb-12">
+            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-3">
+                HOW TO USE
+            </span>
+            <h2 class="text-4xl font-bold text-gray-900">사용 안내</h2>
+            <div class="w-16 h-1 bg-kepco-light mx-auto mt-4"></div>
+            <p class="text-gray-600 mt-4">AI 서비스를 처음 사용하시나요? 간단한 4단계로 시작하세요</p>
+        </div>
+
+        <!-- 스텝 카드 -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+
+            <!-- Step 1 -->
+            <div class="step-card text-center p-6 bg-white rounded-xl shadow-sm border border-gray-100">
+                <div class="w-12 h-12 bg-kepco-blue text-white rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-bold">1</div>
+                <h3 class="font-semibold text-gray-900 mb-2">계정 준비</h3>
+                <p class="text-sm text-gray-500">ChatGPT Plus 또는 Google 계정을 준비하세요</p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step-card text-center p-6 bg-white rounded-xl shadow-sm border border-gray-100">
+                <div class="w-12 h-12 bg-kepco-blue text-white rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-bold">2</div>
+                <h3 class="font-semibold text-gray-900 mb-2">서비스 접속</h3>
+                <p class="text-sm text-gray-500">위 AI 서비스 카드의 버튼을 클릭하여 접속합니다</p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step-card text-center p-6 bg-white rounded-xl shadow-sm border border-gray-100">
+                <div class="w-12 h-12 bg-kepco-blue text-white rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-bold">3</div>
+                <h3 class="font-semibold text-gray-900 mb-2">교육 영상 확인</h3>
+                <p class="text-sm text-gray-500">Guidde 교육 영상을 먼저 시청하면 쉽게 활용할 수 있습니다</p>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="step-card text-center p-6 bg-white rounded-xl shadow-sm border border-gray-100">
+                <div class="w-12 h-12 bg-kepco-blue text-white rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-bold">4</div>
+                <h3 class="font-semibold text-gray-900 mb-2">업무 활용</h3>
+                <p class="text-sm text-gray-500">위험성평가, 정보검색 등 안전 업무에 바로 적용하세요</p>
+            </div>
+        </div>
+
+        <!-- 주의사항 박스 -->
+        <div class="mt-10 max-w-3xl mx-auto bg-yellow-50 border border-yellow-200 rounded-xl p-6">
+            <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-yellow-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                </svg>
+                <div>
+                    <h4 class="font-semibold text-yellow-800 mb-1">이용 시 주의사항</h4>
+                    <ul class="text-sm text-yellow-700 space-y-1">
+                        <li>• AI 답변은 참고용이며 최종 판단은 담당자가 확인하시기 바랍니다</li>
+                        <li>• 기밀정보 및 개인정보는 AI 서비스에 입력하지 마십시오</li>
+                        <li>• 문의사항은 안전관리실로 연락 바랍니다</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     Footer
+     ============================================================ -->
+<footer class="bg-kepco-blue text-white py-10">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+
+            <!-- 조직 정보 -->
+            <div>
+                <h3 class="font-bold text-lg mb-3">행복플러스 분당발전본부</h3>
+                <p class="text-blue-200 text-sm">안전관리실</p>
+                <p class="text-blue-300 text-xs mt-2">AI 플랫폼 포털</p>
+            </div>
+
+            <!-- 바로가기 링크 -->
+            <div>
+                <h3 class="font-semibold mb-3 text-sm">바로가기</h3>
+                <ul class="space-y-2 text-sm text-blue-200">
+                    <li><a href="#about" class="hover:text-white transition">안전관리실 소개</a></li>
+                    <li><a href="#services" class="hover:text-white transition">AI 서비스</a></li>
+                    <li><a href="#training" class="hover:text-white transition">교육 자료</a></li>
+                    <li><a href="#guide" class="hover:text-white transition">이용안내</a></li>
+                </ul>
+            </div>
+
+            <!-- 외부 서비스 -->
+            <div>
+                <h3 class="font-semibold mb-3 text-sm">AI 서비스 링크</h3>
+                <ul class="space-y-2 text-sm text-blue-200">
+                    <li>
+                        <a href="https://chatgpt.com/g/g-68d9ea4687d881919dc5d8c7aa65c776-bundang-anjeonnuri-koen-for-wiheomseongpyeongga"
+                           target="_blank" rel="noopener noreferrer"
+                           class="hover:text-white transition flex items-center gap-1">
+                            GPTs 안전누리
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://notebooklm.google.com/notebook/2a65cd74-5062-411a-8eaa-057953920304"
+                           target="_blank" rel="noopener noreferrer"
+                           class="hover:text-white transition flex items-center gap-1">
+                            노트북LM
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="border-t border-blue-700 pt-6 text-center">
+            <p class="text-blue-300 text-sm">© 2026 행복플러스 분당발전본부 안전관리실. All rights reserved.</p>
+            <p class="text-blue-400 text-xs mt-1">Made with HTML5, TailwindCSS & Vanilla JS</p>
+        </div>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
