@@ -82,7 +82,7 @@
 <!-- ============================================================
      Hero 섹션
      ============================================================ -->
-<section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden"
+<section id="home" class="min-h-[80vh] md:min-h-screen flex items-center justify-center relative overflow-hidden"
          style="background: linear-gradient(135deg, #0f2057 0%, #1e3a8a 50%, #1d4ed8 100%);">
 
     <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 30px 30px;"></div>
@@ -104,17 +104,17 @@
         <p class="text-xl md:text-2xl text-blue-100 mb-4 font-light">
             인공지능으로 더욱 스마트하고 안전한 현장을 만들어갑니다
         </p>
-        <p class="text-blue-200 mb-10 max-w-2xl mx-auto">
-            GPTs 위험성평가, 노트북LM 작업 안전기준, AI 바로미 개정 안전법규 검토 시스템으로<br>
+        <p class="text-blue-200 mb-10 max-w-2xl mx-auto text-sm md:text-base">
+            GPTs 위험성평가, 노트북LM 안전기준,<br class="md:hidden"> AI 바로미 법규검토 시스템으로<br class="hidden md:inline">
             안전관리 업무의 디지털 혁신을 지원합니다.
         </p>
 
         <!-- CTA 버튼 -->
-        <div class="flex gap-4 justify-center flex-wrap">
-            <a href="#services" class="px-8 py-3 bg-white text-kepco-blue rounded-lg hover:bg-blue-50 transition font-semibold shadow-lg">
+        <div class="flex gap-3 md:gap-4 justify-center flex-wrap">
+            <a href="#services" class="px-6 md:px-8 py-3 bg-white text-kepco-blue rounded-lg hover:bg-blue-50 transition font-semibold shadow-lg text-sm md:text-base">
                 AI 서비스 바로가기
             </a>
-            <a href="#guide" class="px-8 py-3 border-2 border-white/50 text-white rounded-lg hover:bg-white/10 transition font-semibold">
+            <a href="#guide" class="px-6 md:px-8 py-3 border-2 border-white/50 text-white rounded-lg hover:bg-white/10 transition font-semibold text-sm md:text-base">
                 이용안내 보기
             </a>
         </div>
@@ -131,7 +131,7 @@
 <!-- ============================================================
      안전관리실 소개 섹션
      ============================================================ -->
-<section id="about" class="py-20 bg-white">
+<section id="about" class="py-12 md:py-20 bg-white">
     <div class="container mx-auto px-4">
 
         <!-- 섹션 헤더 -->
@@ -143,7 +143,7 @@
             <div class="w-16 h-1 bg-kepco-light mx-auto mt-4"></div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             <!-- 좌측: 텍스트 -->
             <div>
                 <h3 class="text-2xl font-semibold mb-4 text-kepco-blue">우리의 역할</h3>
@@ -157,21 +157,21 @@
                 </p>
                 <!-- 핵심 역량 리스트 -->
                 <ul class="space-y-3">
-                    <li class="flex items-center gap-3 text-gray-700">
-                        <span class="w-5 h-5 bg-blue-100 text-kepco-light rounded-full flex items-center justify-center text-xs font-bold">✓</span>
+                    <li class="flex items-start gap-3 text-gray-700 text-sm md:text-base">
+                        <span class="w-5 h-5 bg-blue-100 text-kepco-light rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">✓</span>
                         AI 기반 위험성평가 지원 [특허출원 중인 7단계 Interactive 시스템]
                     </li>
-                    <li class="flex items-center gap-3 text-gray-700">
-                        <span class="w-5 h-5 bg-blue-100 text-kepco-light rounded-full flex items-center justify-center text-xs font-bold">✓</span>
-                        AI의 고도화된 알고리즘을 활용한 안전기준 및 법규 검색 고도화
+                    <li class="flex items-start gap-3 text-gray-700 text-sm md:text-base">
+                        <span class="w-5 h-5 bg-blue-100 text-kepco-light rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">✓</span>
+                        AI 알고리즘을 활용한 안전기준 및 법규 검색 고도화
                     </li>
-                    <li class="flex items-center gap-3 text-gray-700">
-                        <span class="w-5 h-5 bg-blue-100 text-kepco-light rounded-full flex items-center justify-center text-xs font-bold">✓</span>
-                        본부에서 직접 제작한 안전 AI 활용역량 극대화를 위한 교육체계 구축
+                    <li class="flex items-start gap-3 text-gray-700 text-sm md:text-base">
+                        <span class="w-5 h-5 bg-blue-100 text-kepco-light rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">✓</span>
+                        안전 AI 활용역량 극대화를 위한 교육체계 구축
                     </li>
-                    <li class="flex items-center gap-3 text-gray-700">
-                        <span class="w-5 h-5 bg-blue-100 text-kepco-light rounded-full flex items-center justify-center text-xs font-bold">✓</span>
-                        위험성평가의 현장 작동성 강화를 통한 산업재해 ZERO 달성
+                    <li class="flex items-start gap-3 text-gray-700 text-sm md:text-base">
+                        <span class="w-5 h-5 bg-blue-100 text-kepco-light rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">✓</span>
+                        위험성평가 현장 작동성 강화를 통한 산업재해 ZERO 달성
                     </li>
                 </ul>
             </div>
@@ -205,7 +205,7 @@
 <!-- ============================================================
      AI 서비스 섹션
      ============================================================ -->
-<section id="services" class="py-20 bg-gray-50">
+<section id="services" class="py-12 md:py-20 bg-gray-50">
     <div class="container mx-auto px-4">
 
         <!-- 섹션 헤더 -->
@@ -219,7 +219,7 @@
         </div>
 
         <!-- 서비스 카드 그리드 -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-8 max-w-6xl mx-auto">
 
             <!-- 카드 1: GPTs 안전누리 -->
             <div class="service-card card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition group flex flex-col">
@@ -386,7 +386,7 @@
 <!-- ============================================================
      교육 자료 섹션
      ============================================================ -->
-<section id="training" class="py-20 bg-white">
+<section id="training" class="py-12 md:py-20 bg-white">
     <div class="container mx-auto px-4">
 
         <div class="text-center mb-12">
@@ -443,7 +443,7 @@
 <!-- ============================================================
      이용안내 섹션
      ============================================================ -->
-<section id="guide" class="py-20 bg-blue-50">
+<section id="guide" class="py-12 md:py-20 bg-blue-50">
     <div class="container mx-auto px-4">
 
         <div class="text-center mb-12">
@@ -456,7 +456,7 @@
         </div>
 
         <!-- 스텝 카드 -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
 
             <!-- Step 1 -->
             <div class="step-card text-center p-6 bg-white rounded-xl shadow-sm border border-gray-100">
@@ -488,7 +488,7 @@
         </div>
 
         <!-- 주의사항 박스 -->
-        <div class="mt-10 max-w-3xl mx-auto bg-yellow-50 border border-yellow-200 rounded-xl p-6">
+        <div class="mt-8 md:mt-10 max-w-3xl mx-auto bg-yellow-50 border border-yellow-200 rounded-xl p-4 md:p-6">
             <div class="flex items-start gap-3">
                 <svg class="w-5 h-5 text-yellow-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
