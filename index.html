@@ -36,6 +36,9 @@
 
     <link rel="stylesheet" href="css/style.css">
     <title>안전관리실 AI 플랫폼 | 행복플러스 분당발전본부</title>
+
+    <!-- i18n 런타임 (EN 모드일 때 ui_en.json 프리페치) -->
+    <script src="js/i18n.js"></script>
 </head>
 <body class="bg-white">
 
@@ -54,20 +57,29 @@
             </div>
         </div>
 
-        <!-- 데스크톱 메뉴 -->
-        <div class="hidden md:flex space-x-6">
-            <a href="#about" class="nav-link text-gray-700 hover:text-kepco-light transition text-sm font-medium">소개</a>
-            <a href="#services" class="nav-link text-gray-700 hover:text-kepco-light transition text-sm font-medium">AI 서비스</a>
-            <a href="#training" class="nav-link text-gray-700 hover:text-kepco-light transition text-sm font-medium">교육자료</a>
-            <a href="#guide" class="nav-link text-gray-700 hover:text-kepco-light transition text-sm font-medium">이용안내</a>
-        </div>
+        <!-- 우측 영역: 데스크톱 메뉴 + 언어 토글 + 햄버거 -->
+        <div class="flex items-center gap-3 md:gap-5">
+            <!-- 데스크톱 메뉴 -->
+            <div class="hidden md:flex space-x-6">
+                <a href="#about" class="nav-link text-gray-700 hover:text-kepco-light transition text-sm font-medium">소개</a>
+                <a href="#services" class="nav-link text-gray-700 hover:text-kepco-light transition text-sm font-medium">AI 서비스</a>
+                <a href="#training" class="nav-link text-gray-700 hover:text-kepco-light transition text-sm font-medium">교육자료</a>
+                <a href="#guide" class="nav-link text-gray-700 hover:text-kepco-light transition text-sm font-medium">이용안내</a>
+            </div>
 
-        <!-- 모바일 햄버거 버튼 -->
-        <button id="mobileMenuBtn" class="md:hidden p-2">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-        </button>
+            <!-- 언어 토글 (한국어 / EN) — 데스크톱·모바일 공통 노출 -->
+            <div id="langToggle" class="inline-flex items-center rounded-lg border border-gray-200 overflow-hidden text-xs font-semibold shrink-0">
+                <button type="button" data-lang="ko" class="lang-btn px-2.5 py-1.5 transition-colors">한국어</button>
+                <button type="button" data-lang="en" class="lang-btn px-2.5 py-1.5 transition-colors">EN</button>
+            </div>
+
+            <!-- 모바일 햄버거 버튼 -->
+            <button id="mobileMenuBtn" class="md:hidden p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
     </div>
 
     <!-- 모바일 메뉴 -->
