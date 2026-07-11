@@ -103,10 +103,39 @@ function debounce(func, delay) {
 }
 
 // ============================================================
+// 언어 토글 (한국어 / EN)
+// ============================================================
+
+function setupLangToggle() {
+    const cur = (typeof I18n !== 'undefined') ? I18n.lang : 'ko';
+    const on = 'bg-kepco-blue text-white';
+    const off = 'bg-white text-gray-500 hover:text-kepco-blue';
+    document.querySelectorAll('#langToggle .lang-btn').forEach((btn) => {
+        const lang = btn.getAttribute('data-lang');
+        // 현재 언어 하이라이트
+        (lang === cur ? on : off).split(' ').forEach((c) => btn.classList.add(c));
+        btn.addEventListener('click', () => {
+            if (typeof I18n !== 'undefined' && lang !== I18n.lang) I18n.setLang(lang);
+        });
+    });
+}
+
+// ============================================================
 // 초기화
 // ============================================================
 
 document.addEventListener('DOMContentLoaded', function () {
+    // i18n: EN이면 리소스 로드 완료 후 전체 치환 + 동적 DOM 자동번역 설치
+    if (typeof I18n !== 'undefined') {
+        I18n.init().then(() => {
+            I18n.refresh();
+            I18n.installAutoTranslate();
+        });
+    }
+
+    // 언어 토글 배선
+    setupLangToggle();
+
     // 모바일 메뉴 토글
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     if (mobileMenuBtn) {
